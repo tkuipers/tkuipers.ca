@@ -3,9 +3,6 @@ import Vue from 'vue'
 
 export default Vue.extend({
   methods: {
-    scrollToTop() {
-      window.scrollTo(0,0);
-    },
     openLink(link) {
       window.open(link, '_blank');
     }
@@ -16,12 +13,13 @@ export default Vue.extend({
 <template>
     <div class="main">
         <link href="https://fonts.googleapis.com/css?family=Roboto:100" rel="stylesheet">
-        <p id='head1' class='header'>Welcome</p>
+        <p id='head1' class='header'>Welcome.</p>
         <p id='head2' class='header'>TK</p>
         <p id='head3' class='header'>Tyler Kuipers</p>
         <ul class="list_nav">
           <li class="list_nav__item" @click="openLink('https://www.github.com/tkuipers')">My Work</li>
           <li class="list_nav__item" @click="openLink('https://resume.tkuipers.ca')">Resume</li>
+          <li class="list_nav__item" @click="openLink('https://www.linkedin.com/in/tyler-kuipers/')">LinkedIn</li>
         </ul>
         <div class='light x1'></div>
         <div class='light x2'></div>
@@ -72,10 +70,14 @@ export default Vue.extend({
   height: 2px;
   left: 0px;
   bottom: -4px;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.3s ease;
 }
 .list_nav__item:hover:after {
   width: 100%;
-  background: orange;
+  background: #709BAA;
+  transform: scaleX(1);
 }
 
 .header{
