@@ -1,10 +1,28 @@
+<script>
+import Vue from 'vue'
+
+export default Vue.extend({
+  methods: {
+    scrollToTop() {
+      window.scrollTo(0,0);
+    },
+    openLink(link) {
+      window.open(link, '_blank');
+    }
+  }
+});
+
+</script>
 <template>
     <div class="main">
         <link href="https://fonts.googleapis.com/css?family=Roboto:100" rel="stylesheet">
         <p id='head1' class='header'>Welcome</p>
         <p id='head2' class='header'>TK</p>
         <p id='head3' class='header'>Tyler Kuipers</p>
-        <button class='button_main' >Continue</button>
+        <ul class="list_nav">
+          <li class="list_nav__item" @click="openLink('https://www.github.com/tkuipers')">My Work</li>
+          <li class="list_nav__item" @click="openLink('https://resume.tkuipers.ca')">Resume</li>
+        </ul>
         <div class='light x1'></div>
         <div class='light x2'></div>
         <div class='light x3'></div>
@@ -21,7 +39,7 @@
     margin: 0;
     height: 100vh;
     font-weight: 100;
-    background: radial-gradient(#a23982,#1f1013);
+    background: radial-gradient(#709baa,black);
     -webkit-overflow-Y: hidden;
     -moz-overflow-Y: hidden;
     -o-overflow-Y: hidden;
@@ -30,36 +48,34 @@
     -moz-animation: fadeIn 1 1s ease-out;
     -o-animation: fadeIn 1 1s ease-out;
     animation: fadeIn 1 1s ease-out;
+    font-family: 'Roboto', sans-serif;
 }
 
-
-.button_main {
-  position: absolute;
-  border: 2px solid white;
-  background: transparent;
-  font-family: 'Roboto', sans-serif;
+.list_nav {
   color: white;
-  width: 250px;
-  height: 50px;
-  font-size: 2em;
-  border-radius: 5px;
-  opacity: .5;
-  top: 60vh;
-  bottom: 0px;
-  left: 0px;
+  text-decoration: none;
+  list-style: none;
+  position: absolute;
   right: 0px;
-  margin: auto;
-  transition: .3s;
 }
 
-.button_main:hover{
-  border: 2px solid #104F55;
-  background-color: rgba(365,365,365,0.5);
-  cursor: pointer;
-  color: #104F55;
-  opacity: .8;
-  transition: .3s;
-  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+.list_nav__item {
+  margin-right: 10px;
+  padding-top: 5px;
+  position: relative;
+  text-align: right;
+}
+
+.list_nav__item::after {
+  position: absolute;
+  content: '';
+  height: 2px;
+  left: 0px;
+  bottom: -4px;
+}
+.list_nav__item:hover:after {
+  width: 100%;
+  background: orange;
 }
 
 .header{
