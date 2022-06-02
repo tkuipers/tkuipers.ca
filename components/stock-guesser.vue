@@ -62,7 +62,7 @@ export default Vue.extend({
 }
 .ticker-form {
     text-align: center;
-    position: absolute;
+    /* position: absolute; */
     top: 40%;
     left: 40%;
     height: 50%;
@@ -105,7 +105,7 @@ export default Vue.extend({
 
 .loading {
     text-align: center;
-    position: absolute;
+    /* position: absolute; */
     top: 45%;
     left: 48%;
     height: 50%;
@@ -114,7 +114,7 @@ export default Vue.extend({
 .result {
     color: white;
     text-align: center;
-    position: absolute;
+    /* position: absolute; */
     top: 42%;
     left: 42%;
     height: 50%;

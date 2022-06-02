@@ -13,10 +13,10 @@
     height: 100vh;
     font-weight: 100;
     background: radial-gradient(#709baa,black);
-    -webkit-overflow-Y: hidden;
+    /* -webkit-overflow-Y: hidden;
     -moz-overflow-Y: hidden;
     -o-overflow-Y: hidden;
-    overflow-y: hidden;
+    overflow-y: hidden; */
     -webkit-animation: fadeIn 1 1s ease-out;
     -moz-animation: fadeIn 1 1s ease-out;
     -o-animation: fadeIn 1 1s ease-out;
