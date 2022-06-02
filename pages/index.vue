@@ -25,5 +25,6 @@ body {
     -moz-animation: fadeIn 1 1s ease-out;
     -o-animation: fadeIn 1 1s ease-out;
     animation: fadeIn 1 1s ease-out;
+    font-family: 'Roboto', sans-serif;
 }
 </style>
