@@ -1,16 +1,11 @@
 <template>
-  <home-page></home-page>
+<div>
+    <lights-background></lights-background>
+    <stock-guesser></stock-guesser>
+    <nav-list></nav-list>
+</div>
 </template>
 
-<script lang="ts">
-import Vue from 'vue'
-import homePage from '~/components/home-page.vue'
-
-export default Vue.extend({
-  components: { homePage },
-  name: 'IndexPage'
-})
-</script>
 <style>
 body {
     margin: 0;
