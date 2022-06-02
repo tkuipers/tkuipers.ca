@@ -1,7 +1,5 @@
 <template>
 <div>
-    <link href="https://fonts.googleapis.com/css?family=Roboto:100" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,700&display=swap" rel="stylesheet">
     <lights-background></lights-background>
     <stock-guesser></stock-guesser>
     <nav-list></nav-list>

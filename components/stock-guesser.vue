@@ -1,20 +1,20 @@
 <template>
 <div>
-    <div v-if="showQuery" class="form-1">
+    <div v-if="showQuery" class="ticker-form">
         <input type="text" ref="stockTicker" maxlength=5 placeholder="Stock Ticker" class='ticker' />
         <br/>
         <input value="Guess" title="Guess" type="submit" class="submit" @click="getStockPrediction()">
     </div>
     <loading-spinner v-if="showLoading" class="loading"></loading-spinner>
     <div class="result" v-if="showResult">
-        Based on {{result.url}}, stock should go <p class="prediction__up" v-if="result.prediction">up</p><p class="prediction__down" v-if="!result.prediction">down</p>
+        Based on {{result.article_url}}, stock should go <p class="prediction__up" v-if="result.prediction">up</p><p class="prediction__down" v-if="!result.prediction">down</p>
         {{result.confidence*100}}% confidence.
     </div>
     <div class="error" v-if="showError"></div>
 </div>
 </template>
 
-<script lang="ts">
+<script>
 import Vue from 'vue'
 import axios from 'axios';
 Vue.prototype.$http = axios;
@@ -36,7 +36,7 @@ export default Vue.extend({
             try {
                 this.$data.showQuery = false
                 this.$data.showLoading = true
-                let stock: string = this.$refs.stockTicker.value.toString();
+                let stock = this.$refs.stockTicker.value.toString();
                 stock = stock.toUpperCase();
                 const response = await this.$http.get(
                     `https://stock-guesser.tkuipers.ca?stock=${stock}`
@@ -57,7 +57,7 @@ export default Vue.extend({
 
 
 <style>
-.form-1 {
+.ticker-form {
     text-align: center;
     position: absolute;
     top: 40%;
