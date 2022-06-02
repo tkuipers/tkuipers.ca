@@ -1,10 +1,10 @@
 <template>
     <div>
         <ul class="list_nav">
-            <li class="list_nav__item" @click="openLink('https://www.github.com/tkuipers')">My Work</li>
             <li class="list_nav__item" @click="openLink('/stock-guesser')">Stock Guesser</li>
-            <li class="list_nav__item" @click="openLink('https://resume.tkuipers.ca')">Resume</li>
+            <li class="list_nav__item" @click="openLink('https://www.github.com/tkuipers')">Github</li>
             <li class="list_nav__item" @click="openLink('https://www.linkedin.com/in/tyler-kuipers/')">LinkedIn</li>
+            <li class="list_nav__item" @click="openLink('https://resume.tkuipers.ca')">Resume</li>
           </ul>
     </div>
 </template>

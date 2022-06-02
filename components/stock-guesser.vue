@@ -3,12 +3,12 @@
     <div v-if="showQuery" class="ticker-form">
         <input type="text" ref="stockTicker" maxlength=5 placeholder="Stock Ticker" class='ticker' />
         <br/>
-        <input value="Guess" title="Guess" type="submit" class="submit" @click="getStockPrediction()">
+        <input value="Predict" title="Guess" type="submit" class="submit" @click="getStockPrediction()">
     </div>
     <loading-spinner v-if="showLoading" class="loading"></loading-spinner>
     <div class="result" v-if="showResult">
-        Based on {{result.article_url}}, stock should go <p class="prediction__up" v-if="result.prediction">up</p><p class="prediction__down" v-if="!result.prediction">down</p>
-        {{result.confidence*100}}% confidence.
+        Based on <a class='stock-article' v-bind:href="result.article_url" target="_blank">this article</a>, stock should go <p class="prediction__up" v-if="result.prediction">up</p><p class="prediction__down" v-if="!result.prediction">down</p>
+        {{(result.confidence*100).toFixed(2)}}% confidence.
     </div>
     <div class="error" v-if="showError"></div>
 </div>
@@ -57,6 +57,9 @@ export default Vue.extend({
 
 
 <style>
+.stock-article {
+    text-decoration: none;
+}
 .ticker-form {
     text-align: center;
     position: absolute;
@@ -74,6 +77,9 @@ export default Vue.extend({
     color: white;
 
     margin-bottom: 10px;
+}
+.ticker:focus {
+    outline: 1px solid white;  
 }
 ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
   color: white;
