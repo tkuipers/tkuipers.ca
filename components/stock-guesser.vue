@@ -5,12 +5,16 @@
         <br/>
         <input value="Predict" title="Guess" type="submit" class="submit" @click="getStockPrediction()">
     </div>
-    <loading-spinner v-if="showLoading" class="loading"></loading-spinner>
-    <div class="result" v-if="showResult">
-        Based on <a class='stock-article' v-bind:href="result.article_url" target="_blank">this article</a>, stock should go <p class="prediction__up" v-if="result.prediction">up</p><p class="prediction__down" v-if="!result.prediction">down</p>
-        {{(result.confidence*100).toFixed(2)}}% confidence.
+    <loading-spinner v-if="showLoading" class="loading h-100 w-100 d-flex align-items-center justify-content-center"></loading-spinner>
+    <div class="h-100 w-100 text-align-center result" v-if="showResult">
+        <div class="text-center">Based on <a class='stock-article link-light' v-bind:href="result.article_url" target="_blank">this article</a>,</div><br/>
+        <div class="text-center"> that stock should go </div>
+        <div class="text-center"><p class="prediction__up" v-if="result.prediction">up</p><p class="prediction__down" v-if="!result.prediction">down</p></div>
+        <div class="text-center">{{(result.confidence*100).toFixed(2)}}% confidence.</div>
     </div>
-    <div class="error" v-if="showError"></div>
+    <div class=" h-100 d-flex align-items-center justify-content-center error" v-if="showError">
+        Could not predict this stock, something went wrong.
+    </div>
 </div>
 </template>
 
@@ -39,7 +43,8 @@ export default Vue.extend({
                 let stock = this.$refs.stockTicker.value.toString();
                 stock = stock.toUpperCase();
                 const response = await this.$http.get(
-                    `https://stock-guesser.tkuipers.ca?stock=${stock}`
+                    // `https://stock-guesser.tkuipers.ca?stock=${stock}`
+                    `/api?stock=${stock}`
                 );
                 this.$data.result = response.data;
                 this.showLoading = false;
@@ -59,10 +64,11 @@ export default Vue.extend({
 <style>
 .stock-article {
     text-decoration: none;
+    color: #ADD8E6;
 }
+
 .ticker-form {
     text-align: center;
-    /* position: absolute; */
     top: 40%;
     left: 40%;
     height: 50%;
@@ -81,17 +87,17 @@ export default Vue.extend({
 .ticker:focus {
     outline: 1px solid white;  
 }
-::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+::placeholder {
   color: white;
   font-weight: 100;
-  opacity: 1; /* Firefox */
+  opacity: 1;
 }
 
-:-ms-input-placeholder { /* Internet Explorer 10-11 */
+:-ms-input-placeholder {
   color: white;
 }
 
-::-ms-input-placeholder { /* Microsoft Edge */
+::-ms-input-placeholder { 
   color: white;
 }
 
@@ -105,19 +111,17 @@ export default Vue.extend({
 
 .loading {
     text-align: center;
-    /* position: absolute; */
-    top: 45%;
+    /* top: 45%;
     left: 48%;
-    height: 50%;
+    height: 50%; */
 }
 
 .result {
     color: white;
-    text-align: center;
-    /* position: absolute; */
-    top: 42%;
-    left: 42%;
-    height: 50%;
+}
+
+.error {
+    color: white;
 }
 
 .prediction__up {
