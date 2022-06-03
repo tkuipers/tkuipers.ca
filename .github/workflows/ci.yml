@@ -65,7 +65,7 @@ jobs:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_KEY_SECRET }}
           AWS_REGION: 'us-east-1'
-      - name: Invalidate CloudFront Cache
+      - name: Invalidate CloudFront Cache https://tkuipers.ca
         uses: chetan/invalidate-cloudfront-action@v2
         env:
           DISTRIBUTION: ${{ secrets.CLOUDFRONT_DISTRIBUTION_1 }}
@@ -73,7 +73,7 @@ jobs:
           AWS_REGION: "us-east-1"
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_KEY_SECRET }}
-      - name: Invalidate CloudFront Cache
+      - name: Invalidate CloudFront Cache https://www.tkuipers.ca
         uses: chetan/invalidate-cloudfront-action@v2
         env:
           DISTRIBUTION: ${{ secrets.CLOUDFRONT_DISTRIBUTION_2 }}
