@@ -12,8 +12,8 @@
         <div class="text-center">Based on <a class='stock-article link-light' v-bind:href="result.article_url" target="_blank">this article</a>,</div><br/>
         <div class="text-center"> that stock should go </div>
         <div class="text-center"><p class="prediction__up" v-if="result.prediction">up</p><p class="prediction__down" v-if="!result.prediction">down</p></div>
-        <div class="text-center">{{(result.confidence*100).toFixed(2)}}% confidence.*</div>
-        <div class="text-center fixed-bottom confidence-disclaimer"><small>* Confidence is determined by the certanty of the guess and the accuracy of the model</small></div>
+        <div class="text-center">{{(result.confidence*100).toFixed(2)}}% confidence.</div>
+        <div class="text-center confidence-disclaimer"><small>Confidence is determined by the certanty of the guess and the accuracy of the model</small></div>
     </div>
     <div class=" h-100 d-flex align-items-center justify-content-center error" v-if="showError">
         Could not predict this stock, something went wrong.
