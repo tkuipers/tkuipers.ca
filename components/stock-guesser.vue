@@ -1,16 +1,19 @@
 <template>
 <div>
     <div v-if="showQuery" class="ticker-form">
-        <input type="text" ref="stockTicker" maxlength=5 placeholder="Stock Ticker" class='ticker' />
+        <input type="text" ref="stockTicker" maxlength=5 placeholder="Stock Ticker" class='ticker' @keyup.enter="getStockPrediction()" />
         <br/>
         <input value="Predict" title="Guess" type="submit" class="submit" @click="getStockPrediction()">
     </div>
-    <loading-spinner v-if="showLoading" class="loading h-100 w-100 d-flex align-items-center justify-content-center"></loading-spinner>
+    <div class="d-flex justify-content-center align-items-center">
+        <loading-spinner v-if="showLoading" class="loading "></loading-spinner>
+    </div>
     <div class="h-100 w-100 text-align-center result" v-if="showResult">
         <div class="text-center">Based on <a class='stock-article link-light' v-bind:href="result.article_url" target="_blank">this article</a>,</div><br/>
         <div class="text-center"> that stock should go </div>
         <div class="text-center"><p class="prediction__up" v-if="result.prediction">up</p><p class="prediction__down" v-if="!result.prediction">down</p></div>
-        <div class="text-center">{{(result.confidence*100).toFixed(2)}}% confidence.</div>
+        <div class="text-center">{{(result.confidence*100).toFixed(2)}}% confidence.*</div>
+        <div class="text-center fixed-bottom confidence-disclaimer"><small>* Confidence is determined by the certanty of the guess and the accuracy of the model</small></div>
     </div>
     <div class=" h-100 d-flex align-items-center justify-content-center error" v-if="showError">
         Could not predict this stock, something went wrong.
@@ -52,7 +55,7 @@ export default Vue.extend({
             } catch (error) {
                 this.showLoading = false;
                 this.showError = true;
-                console.log(error);
+                console.error(error);
             }
         },
     }
@@ -71,6 +74,10 @@ export default Vue.extend({
     top: 40%;
     left: 40%;
     height: 50%;
+}
+
+.confidence-disclaimer {
+    font-size: 0.8rem;
 }
 
 .ticker {
@@ -106,13 +113,6 @@ export default Vue.extend({
     border: 1px solid white;
     color: white;
     font-size: 24px;
-}
-
-.loading {
-    text-align: center;
-    /* top: 45%;
-    left: 48%;
-    height: 50%; */
 }
 
 .result {
