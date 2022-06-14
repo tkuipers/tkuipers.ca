@@ -1,7 +1,7 @@
 <template>
 <div>
     <div v-if="showQuery" class="ticker-form">
-        <input type="text" ref="stockTicker" maxlength=5 placeholder="Stock Ticker" class='ticker' @keyup.enter="getStockPrediction()" />
+        <input type="text" ref="stockTicker" maxlength=5 placeholder="AAPL" class='ticker' @keyup.enter="getStockPrediction()" />
         <br/>
         <input value="Predict" title="Guess" type="submit" class="submit" @click="getStockPrediction()">
     </div>
