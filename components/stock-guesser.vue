@@ -46,8 +46,7 @@ export default Vue.extend({
                 let stock = this.$refs.stockTicker.value.toString();
                 stock = stock.toUpperCase();
                 const response = await this.$http.get(
-                    `https://stock-guesser.tkuipers.ca?stock=${stock}`,
-                    timeout = 90000
+                    `https://stock-guesser.tkuipers.ca?stock=${stock}`
                 );
                 this.$data.result = response.data;
                 this.showLoading = false;
