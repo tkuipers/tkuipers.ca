@@ -15,7 +15,9 @@ concurrency:
 jobs:
   ci:
     runs-on: ubuntu-latest
-
+    environment:
+      name: tkuipers.ca
+      url: https://www.tkuipers.ca
     steps:
       - name: Checkout 🛎
         uses: actions/checkout@master
