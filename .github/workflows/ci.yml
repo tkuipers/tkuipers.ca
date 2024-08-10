@@ -60,6 +60,8 @@ jobs:
       name: tkuipers.ca
       url: https://www.tkuipers.ca
     steps:
+      - uses: azure/setup-kubectl@v4
+        id: install
       - name: Kube config
         uses: azure/k8s-set-context@v1
         with:
