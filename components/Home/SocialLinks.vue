@@ -34,5 +34,10 @@ const links = [
     url: "https://www.linkedin.com/in/tyler-kuipers/",
     icon: "mdi:linkedin",
   },
+  {
+    name: "Google Scholar",
+    url: "https://scholar.google.com/citations?user=YNLf7NUAAAAJ",
+    icon: "heroicons:academic-cap",
+  },
 ];
 </script>
