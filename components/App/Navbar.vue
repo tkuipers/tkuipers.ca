@@ -48,6 +48,11 @@ const items = [
     path: "/projects",
     icon: "solar:folder-with-files-outline",
   },
+  {
+    name: "Resume",
+    path: "https://tkuipers-resume.s3.amazonaws.com/resume.pdf",
+    icon: "solar:document-text-outline",
+  }
   // {
   //   name: "Articles",
   //   path: "/articles",
