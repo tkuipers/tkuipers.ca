@@ -1,75 +1,53 @@
-# Nuxt 3 Minimal Starter
+[<img src="https://github.com/user-attachments/assets/60e89805-26fd-4074-8ced-447fb148c7e6">](http://supersaas.dev?ref=github)
 
-Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
 
-## Setup
+# Zooper
 
-Make sure to install the dependencies:
+Zooper is a beautiful personal portfolio template for developers, programmers, freelancers and designers.
 
-```bash
-# npm
-npm install
+![Zooper template home preview](https://zooper.pages.dev/preview.jpg)
 
-# pnpm
-pnpm install
 
-# yarn
-yarn install
+## Features
 
-# bun
-bun install
-```
+Full features blog 📝.
+CMS ready 🚀.
+Super fast ⚡.
+SEO friendly 📈.
+Fully responsive 📱.
+Dark mode 🌗.
+Syntax highlighting 🌈.
+Social media links 🔗.
+Code preview playground 🎮.
+Uses page 🧑‍💻
+Bookmarks 📑.
 
-## Development Server
+## Roadmap
 
-Start the development server on `http://localhost:3000`:
+Comments
+Tags
+Categories
+Pagination
+Sitemap
+RSS feeds
+Search
+Likes
 
-```bash
-# npm
-npm run dev
+## Tech Stack
 
-# pnpm
-pnpm run dev
+1. Nuxt JS
+2. Tailwind CSS
+3. Vue
+4. Nuxt Content Module
+5. Shiki JS ES
 
-# yarn
-yarn dev
+## Installation
 
-# bun
-bun run dev
-```
+1. `git clone` this repo or click on `Use this template` button.
+2. `cd` into the project directory.
+3. Run `yarn install` to install the dependencies.
+4. Run `yarn dev` to start the development server.
 
-## Production
+## Contributing
 
-Build the application for production:
-
-```bash
-# npm
-npm run build
-
-# pnpm
-pnpm run build
-
-# yarn
-yarn build
-
-# bun
-bun run build
-```
-
-Locally preview production build:
-
-```bash
-# npm
-npm run preview
-
-# pnpm
-pnpm run preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
-```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
