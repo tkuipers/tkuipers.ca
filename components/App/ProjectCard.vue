@@ -17,6 +17,7 @@
     <UAvatar
       :src="project.thumbnail"
       :ui="{ rounded: 'rounded z-10 relative' }"
+      :color="orange"
       size="md"
       :alt="project.name"
     />

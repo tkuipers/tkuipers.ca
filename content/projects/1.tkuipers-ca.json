@@ -1,0 +1,8 @@
+{
+  "name": "This Website",
+  "url": "https://tkuipers.ca",
+  "description": "This Website is a personal project of mine.  It's a static site built on NuxtJS, and is hosted on my home-lab.  It's using K8s for orchestration, and has a CI/CD pipeline built out using github actions.",
+  "thumbnail": "/projects/website.svg",
+  "status": "WIP",
+  "opensource": true
+}

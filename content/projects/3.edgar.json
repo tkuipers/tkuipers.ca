@@ -1,0 +1,8 @@
+{
+  "name": "Edgar",
+  "url": "https://github.com/tkuipers/edgar",
+  "description": "An app to simplify test suite management, execution and reporting.",
+  "thumbnail": "/projects/check.svg",
+  "status": "Active",
+  "opensource": false
+}
