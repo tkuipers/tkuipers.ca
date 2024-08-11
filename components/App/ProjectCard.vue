@@ -14,12 +14,10 @@
     <div
       class="flex-1 border-b border-dashed border-gray-300 dark:border-gray-800 group-hover:border-gray-700"
     ></div>
-    <UAvatar
-      :src="project.thumbnail"
-      :ui="{ rounded: 'rounded z-10 relative' }"
-      :color="orange"
-      size="md"
-      :alt="project.name"
+    <Icon
+        aria-hidden="true"
+        :name="project.thumbnail"
+        class="w-10 h-10 text-gray-400"
     />
   </NuxtLink>
 </template>
