@@ -35,7 +35,8 @@ const handleSubmit = (event: Event) => {
 <template>
   <h1 class="text-2xl font-bold mb-4">Stocks</h1>
   <p>Input a stock ticker below and I'll use machine learning and sentiment analysis to
-  try and determine whether the stock will go up or down within the next trading day.</p>
+  try and determine whether the stock will go up or down within the next trading day.
+  I have a hard time with some stocks, please be patient.</p>
   <div class="h-12"></div>
   <form @submit="handleSubmit" class="flex items-center space-x-4" v-if="!receivedStockInfo">
     <UInput
