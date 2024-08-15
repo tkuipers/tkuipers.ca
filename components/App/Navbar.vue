@@ -49,6 +49,11 @@ const items = [
     icon: "solar:folder-with-files-outline",
   },
   {
+    name: "Stocks",
+    path: "/stocks",
+    icon: "solar:graph-up-outline",
+  },
+  {
     name: "Resume",
     path: "https://tkuipers-resume.s3.amazonaws.com/resume.pdf",
     icon: "solar:document-text-outline",

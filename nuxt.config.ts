@@ -12,6 +12,10 @@ export default defineNuxtConfig({
     "@vueuse/nuxt"
   ],
 
+  typescript: {
+    typeCheck: true
+  },
+
   ui: {
     icons: ["heroicons", "lucide"],
   },
