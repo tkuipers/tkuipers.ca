@@ -1,23 +1,24 @@
 <script setup lang="ts">
 import { ref } from 'vue';
-import axios from 'axios';
+import axios, { type AxiosError } from "axios";
 
 const stockSymbol = ref('');
 const receivedStockInfo = ref(false);
-const stockError = ref(false);
+const stockError = ref(-1);
 const loading = ref(false);
 const stockInfo = ref({});
 
 const fetchStockData = async () => {
   if (stockSymbol.value) {
     try {
-      stockError.value = false;
+      stockError.value = -1;
       loading.value = true;
       const response = await axios.get(`http://localhost:8000/stocks/${stockSymbol.value}`);
       receivedStockInfo.value = true;
       stockInfo.value = response.data;
-    } catch (error) {
-      stockError.value = true;
+    } catch (error: any) {
+      console.log(error)
+      stockError.value = error.response.status;
     } finally {
       loading.value = false;
     }
@@ -40,14 +41,15 @@ const handleSubmit = (event: Event) => {
     <UInput
       v-model="stockSymbol"
       placeholder="Enter a stock symbol (MSFT, AAPL, etc...)"
-      :class="{ 'error': stockError }"
+      :class="{ 'error': stockError > 0 }"
       :disabled="loading"
       class="w-full" />
     <UButton :class="{ 'animate-pulse': loading }" type="submit" :disabled="loading">
       <span>Submit</span>
     </UButton>
   </form>
-  <p v-if="stockError" class="error-message">Error fetching stock data. Please try again.</p>
+  <p v-if="stockError > 0 && stockError != 404" class="error-message">Error fetching stock data. Please try again.</p>
+  <p v-if="stockError > 0 && stockError === 404" class="error-message">I couldn't find recent news articles for that stock, try another.</p>
   <StockInfo v-if="receivedStockInfo" :info="stockInfo"/>
 </template>
 
