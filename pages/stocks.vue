@@ -13,7 +13,7 @@ const fetchStockData = async () => {
     try {
       stockError.value = -1;
       loading.value = true;
-      const response = await axios.get(`http://localhost:8000/stocks/${stockSymbol.value}`);
+      const response = await axios.get(`https://scrooge.tkuipers.ca/stocks/${stockSymbol.value}`);
       receivedStockInfo.value = true;
       stockInfo.value = response.data;
     } catch (error: any) {

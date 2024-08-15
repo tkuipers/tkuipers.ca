@@ -8,7 +8,7 @@ defineProps({
 </script>
 
 <template>
-  <div class="">
+  <div class="text-center">
     <h3> Based on
       <ULink class="text-blue-600 underline hover:text-blue-800" target="_blank" ariaCurrentValue="location" :to="info.article_url">this</ULink>
       article, I am {{ ((info.confidence ?? 0) * 100).toFixed(0) }}% sure that {{ info.longname }} will go:</h3>
@@ -21,7 +21,7 @@ defineProps({
  .stock-predict-up {
    color: #a6d189;
  }
-  .stock-predict-down {
-    color: #e78284;
-  }
+.stock-predict-down {
+  color: #e78284;
+}
 </style>
