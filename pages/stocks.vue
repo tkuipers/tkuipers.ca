@@ -30,9 +30,15 @@ const handleSubmit = (event: Event) => {
   fetchStockData();
 };
 
+useSeoMeta({
+  title: "Stocker | Tyler Kuipers",
+  description: "This is a very simple stok prediction tool that tries to use sentiment analysis to predict whether a stock will go up or down in the next trading day."
+});
+
 </script>
 
 <template>
+  <main>
   <h1 class="text-2xl font-bold mb-4">Stocks</h1>
   <p>Input a stock ticker below and I'll use machine learning and sentiment analysis to
   try and determine whether the stock will go up or down within the next trading day.
@@ -52,6 +58,7 @@ const handleSubmit = (event: Event) => {
   <p v-if="stockError > 0 && stockError != 404" class="error-message">Error fetching stock data. Please try again.</p>
   <p v-if="stockError > 0 && stockError === 404" class="error-message">I couldn't find recent news articles for that stock, try another.</p>
   <StockInfo v-if="receivedStockInfo" :info="stockInfo"/>
+  </main>
 </template>
 
 <style scoped>
