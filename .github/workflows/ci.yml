@@ -13,65 +13,37 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  ci:
+  build:
     runs-on: ubuntu-latest
-    environment:
-      name: tkuipers.ca
-      url: https://www.tkuipers.ca
+    permissions:
+      contents: read
+      packages: write
     steps:
-      - name: Checkout 🛎
-        uses: actions/checkout@master
+      - name: Checkout
+        uses: actions/checkout@v4
 
-      - name: Login to Personal Docker Registry
+      - name: Login to GHCR
+        if: github.ref == 'refs/heads/main'
         uses: docker/login-action@v3
         with:
-          registry: docker.tkuipers.ca
-          username: ${{ secrets.PERSONAL_REGISTRY_USER }}
-          password: ${{ secrets.PERSONAL_REGISTRY_PASSWORD }}
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Setup node env 🏗
-        uses: actions/setup-node@v3.2.0
+      - name: Extract metadata for Docker
+        id: meta
+        uses: docker/metadata-action@v5
         with:
-          node-version: 20
-
-      - name: Install dependencies 👨🏻‍💻
-        run: npm ci --prefer-offline --no-audit
-      
-      - name: Run build 👷🏼
-        run: npm run build
-      
-      - name: Run generate 🧬
-        run: npm run generate
+          images: ghcr.io/${{ github.repository }}
+          tags: |
+            type=raw,value=latest
+            type=sha,prefix=
 
       - name: Build and push Docker image
-        id: push
         uses: docker/build-push-action@v6
         with:
           context: .
           file: ./Dockerfile
-          push: true
-          tags: |
-            docker.tkuipers.ca/tkuipers-ca
-          labels: latest
-
-
-  deploy:
-    name: Deploy
-    runs-on: self-hosted
-    needs: [ci]
-    if: github.ref == 'refs/heads/main'
-    environment:
-      name: tkuipers.ca
-      url: https://www.tkuipers.ca
-    steps:
-      - uses: azure/setup-kubectl@v4
-        id: install
-      - name: Kube config
-        uses: azure/k8s-set-context@v1
-        with:
-          kubeconfig: ${{ secrets.KUBE_CONFIG }}
-          namespace: microk8s
-      - name: Deploy
-        run: kubectl rollout restart deployment/webserver-depl
-
-          
+          push: ${{ github.ref == 'refs/heads/main' }}
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}

@@ -13,7 +13,7 @@ const fetchStockData = async () => {
     try {
       stockError.value = -1;
       loading.value = true;
-      const response = await axios.get(`https://scrooge.tkuipers.ca/stocks/${stockSymbol.value}`);
+      const response = await axios.get(`https://stock-guesser.tkuipers.ca/stocks/${stockSymbol.value}`);
       receivedStockInfo.value = true;
       stockInfo.value = response.data;
     } catch (error: any) {
@@ -31,15 +31,15 @@ const handleSubmit = (event: Event) => {
 };
 
 useSeoMeta({
-  title: "Stocker | Tyler Kuipers",
-  description: "This is a very simple stok prediction tool that tries to use sentiment analysis to predict whether a stock will go up or down in the next trading day."
+  title: "Stock Guesser | Tyler Kuipers",
+  description: "This is a very simple stock prediction tool that tries to use sentiment analysis to predict whether a stock will go up or down in the next trading day."
 });
 
 </script>
 
 <template>
   <main>
-  <h1 class="text-2xl font-bold mb-4">Stocks</h1>
+  <h1 class="text-2xl font-bold mb-4">Stock Guesser</h1>
   <p>Input a stock ticker below and I'll use machine learning and sentiment analysis to
   try and determine whether the stock will go up or down within the next trading day.
   I have a hard time with some stocks, please be patient.</p>

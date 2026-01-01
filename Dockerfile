@@ -1,16 +1,15 @@
-# Use the official NGINX image as a base
-FROM nginx:1.27
+# Build stage
+FROM node:20-alpine AS builder
+WORKDIR /app
+COPY package*.json ./
+RUN npm ci
+COPY . .
+RUN npm run build && npm run generate
 
-# Remove the default NGINX website
-RUN rm -rf /usr/share/nginx/html/*
-RUN rm -rf /etc/nginx/nginx.conf
-
-# Copy the static website files to the NGINX server directory
-COPY ./.output/public /usr/share/nginx/html
-COPY ./res/nginx.conf /etc/nginx/nginx.conf
-
-# Expose port 80 to the outside world
+# Production stage
+FROM nginx:1.27-alpine
+RUN rm -rf /usr/share/nginx/html/* /etc/nginx/nginx.conf
+COPY --from=builder /app/.output/public /usr/share/nginx/html
+COPY res/nginx.conf /etc/nginx/nginx.conf
 EXPOSE 80
-
-# Start NGINX when the container has started
 CMD ["nginx", "-g", "daemon off;"]
