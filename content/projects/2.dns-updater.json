@@ -1,8 +1,0 @@
-{
-  "name": "DNS Updater",
-  "url": "https://github.com/tkuipers/aws_dns_updater",
-  "description": "A simple script to update Route53 DNS records with your current IP address.",
-  "thumbnail": "heroicons:cloud",
-  "status": "Active",
-  "opensource": true
-}
