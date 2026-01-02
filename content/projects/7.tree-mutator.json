@@ -1,0 +1,8 @@
+{
+  "name": "Tree Mutator",
+  "url": "https://github.com/obrasa/tree-mutator",
+  "description": "Cross-language mutation testing tool built on tree-sitter. Supports 10+ languages with syntax-aware mutations for more effective test coverage analysis.",
+  "thumbnail": "heroicons:code-bracket",
+  "status": "Active",
+  "opensource": false
+}
