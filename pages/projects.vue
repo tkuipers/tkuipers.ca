@@ -13,7 +13,7 @@
 
 <script setup>
 const description =
-  "I've worked on many little projects over the years.  Here are a few of my favourites.";
+  "A mix of personal projects and things I've built at work. Here are a few favourites.";
 useSeoMeta({
   title: "Projects | Tyler Kuipers",
   description,

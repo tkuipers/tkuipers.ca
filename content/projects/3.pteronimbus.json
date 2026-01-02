@@ -1,0 +1,8 @@
+{
+  "name": "Pteronimbus",
+  "url": "https://github.com/pteronimbus/pteronimbus",
+  "description": "A Kubernetes operator for declaratively managing game servers via CRDs. Inspired by ArgoCD, it handles Deployments, Services, and storage automatically.",
+  "thumbnail": "heroicons:server-stack",
+  "status": "WIP",
+  "opensource": false
+}
