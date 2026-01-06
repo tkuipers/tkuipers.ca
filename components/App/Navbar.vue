@@ -59,7 +59,7 @@ const items = [
   },
   {
     name: "Resume",
-    path: "https://tkuipers-resume.s3.amazonaws.com/resume.pdf",
+    path: "https://resume.tkuipers.ca",
     icon: "solar:document-text-outline",
     external: true,
   },
