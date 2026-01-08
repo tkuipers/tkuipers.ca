@@ -26,6 +26,13 @@ export default defineNuxtConfig({
       bodyAttrs: {
         class: "antialiased bg-gray-50 dark:bg-black min-h-screen",
       },
+      script: [
+        {
+          src: "https://umami.tkuipers.ca/script.js",
+          defer: true,
+          "data-website-id": "REPLACE_WITH_WEBSITE_ID", // Get this from Umami after adding site
+        },
+      ],
     },
   },
 
