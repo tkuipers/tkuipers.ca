@@ -4,7 +4,7 @@
       <ul
         class="flex items-center my-4 px-3 text-sm font-medium text-gray-800 rounded-full shadow-lg bg-white/90 shadow-gray-800/5 ring-1 backdrop-blur dark:bg-gray-800/90 dark:text-gray-200 dark:ring-white/20 ring-gray-900/5"
       >
-        <li v-for="item in visibleItems" :key="item.path">
+        <li v-for="item in items" :key="item.path">
           <UTooltip
             :text="item.name"
             :ui="{ popper: { strategy: 'absolute' } }"
@@ -42,7 +42,6 @@ import { useFixedHeader } from 'vue-use-fixed-header'
 
 const headerRef = ref(null);
 const { styles } = useFixedHeader(headerRef);
-const stockGuesserAvailable = ref(false);
 
 const items = [
   { name: "Home", path: "/", icon: "solar:home-smile-outline" },
@@ -56,7 +55,6 @@ const items = [
     path: "https://stocks.tkuipers.ca",
     icon: "solar:graph-up-outline",
     external: true,
-    requiresHealthCheck: true,
   },
   {
     name: "Resume",
@@ -66,19 +64,4 @@ const items = [
   },
 ];
 
-const visibleItems = computed(() => 
-  items.filter(item => !item.requiresHealthCheck || stockGuesserAvailable.value)
-);
-
-onMounted(async () => {
-  try {
-    const response = await fetch('https://stock-guesser.tkuipers.ca/healthz', { 
-      method: 'GET',
-      mode: 'cors',
-    });
-    stockGuesserAvailable.value = response.ok;
-  } catch {
-    stockGuesserAvailable.value = false;
-  }
-});
 </script>
