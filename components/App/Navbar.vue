@@ -53,8 +53,9 @@ const items = [
   },
   {
     name: "Stock Guesser",
-    path: "/stocks",
+    path: "https://stocks.tkuipers.ca",
     icon: "solar:graph-up-outline",
+    external: true,
     requiresHealthCheck: true,
   },
   {
